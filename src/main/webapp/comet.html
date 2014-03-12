@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>消息推送</title>
+<script src="js/jquery.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+function pushMessage(data) {
+	//alert(data);
+	$('#message').append(data + '<br/>');
+}
+
+function run(){
+    $.get('http://localhost:8080/pushMessage/run', function(){});
+}
+
+</script>
+
+<div id="message" class="message notice" style="height:300px;word-break:break-all;OVERFLOW:auto"></div>
+
+<iframe id="comet-frame" style="display: none;" src="http://localhost:8080/pushMessage/push"></iframe>
+
+</body>
+</html>
